@@ -1,26 +1,28 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Calc extends JFrame {
     private JPanel Calc;
-    private JButton bu3;
-    private JButton bu6;
-    private JTextField tf;
-    private JButton bu7;
-    private JButton budot;
-    private JButton bu0;
-    private JButton buand;
-    private JButton budel;
-    private JButton busub;
-    private JButton bumulti;
-    private JButton budiv;
-    private JButton bu8;
-    private JButton bu9;
-    private JButton bu4;
-    private JButton bu5;
-    private JButton bu1;
-    private JButton bu2;
-    private JButton buans;
-    private JButton buc;
+    private JButton btnThree;
+    private JButton btnSix;
+    private JTextField textDisplay;
+    private JButton btnSeven;
+    private JButton btnDot;
+    private JButton btnZero;
+    private JButton btnPlus;
+    private JButton buDel;
+    private JButton btnSub;
+    private JButton btnMulti;
+    private JButton btnDiv;
+    private JButton btnEight;
+    private JButton btnNine;
+    private JButton btnFour;
+    private JButton btnFive;
+    private JButton btnOne;
+    private JButton btnTwo;
+    private JButton buEquals;
+    private JButton btnClear;
 
     String operators = null;
     double number1 = 0, number2 = 0;
@@ -34,6 +36,14 @@ public class Calc extends JFrame {
         setLocationRelativeTo(null);
         pack();
         setVisible(true);
+
+        btnZero.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnZeroTxt = textDisplay.getText() + btnZero.getText();
+                textDisplay.setText(btnZeroTxt);
+            }
+        });
     }
 
     public static void main(String[] args) {
