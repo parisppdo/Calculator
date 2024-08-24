@@ -44,6 +44,79 @@ public class Calc extends JFrame {
                 textDisplay.setText(btnZeroTxt);
             }
         });
+
+        btnOne.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnOneTxt = textDisplay.getText() + btnOne.getText();
+                textDisplay.setText(btnOneTxt);
+            }
+        });
+
+        btnTwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnTwoTxt = textDisplay.getText() + btnTwo.getText();
+                textDisplay.setText(btnTwoTxt);
+            }
+        });
+
+        btnThree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnThreeTxt = textDisplay.getText() + btnTwo.getText();
+                textDisplay.setText(btnThreeTxt);
+            }
+        });
+
+        btnFour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnFourTxt = textDisplay.getText() + btnFour.getText();
+                textDisplay.setText(btnFourTxt);
+            }
+        });
+
+        btnFive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnFiveTxt = textDisplay.getText() + btnFive.getText();
+                textDisplay.setText(btnFiveTxt);
+            }
+        });
+
+        btnSix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnSixTxt = textDisplay.getText() + btnSix.getText();
+                textDisplay.setText(btnSixTxt);
+            }
+        });
+
+        btnSeven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnSevenTxt = textDisplay.getText() + btnSeven.getText();
+                textDisplay.setText(btnSevenTxt);
+            }
+        });
+
+        btnEight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnEightTxt = textDisplay.getText() + btnEight.getText();
+                textDisplay.setText(btnEightTxt);
+            }
+        });
+
+        btnNine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnNineTxt = textDisplay.getText() + btnNine.getText();
+                textDisplay.setText(btnNineTxt);
+            }
+        });
+
     }
 
     public static void main(String[] args) {
