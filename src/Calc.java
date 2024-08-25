@@ -3,6 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Calc extends JFrame {
+
+    private double buffer1 = 0.0, buffer2 = 0.0;
+    private char mathOperator;
+
     private JPanel Calc;
     private JButton btnThree;
     private JButton btnSix;
@@ -11,7 +15,7 @@ public class Calc extends JFrame {
     private JButton btnDot;
     private JButton btnZero;
     private JButton btnPlus;
-    private JButton buDel;
+    private JButton btnDel;
     private JButton btnSub;
     private JButton btnMulti;
     private JButton btnDiv;
@@ -21,12 +25,17 @@ public class Calc extends JFrame {
     private JButton btnFive;
     private JButton btnOne;
     private JButton btnTwo;
-    private JButton buEquals;
+    private JButton btnEquals;
     private JButton btnClear;
 
     String operators = null;
     double number1 = 0, number2 = 0;
 
+    private void getOperator (String btnText) {
+        mathOperator = btnText.charAt(0);
+        buffer1 = buffer1 + Double.parseDouble(textDisplay.getText());
+        textDisplay.setText("");
+    }
 
     public Calc() {
         setContentPane(Calc);
@@ -117,6 +126,89 @@ public class Calc extends JFrame {
             }
         });
 
+        btnDot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (textDisplay.getText().equals("")) {
+                    textDisplay.setText("0.");
+                }
+                else if (textDisplay.getText().contains(".")) {
+                    btnDot.setEnabled(false);
+                }
+                else {
+                    String btnDotText = textDisplay.getText() + btnDot.getText();
+                    textDisplay.setText(btnDotText);
+                }
+                btnDot.setEnabled(true);
+            }
+        });
+
+        btnPlus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getOperator(btnPlus.getText());
+            }
+        });
+
+        btnSub.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getOperator(btnSub.getText());
+            }
+        });
+
+        btnMulti.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getOperator(btnMulti.getText());
+            }
+        });
+
+        btnDiv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getOperator(btnDiv.getText());
+            }
+        });
+
+        btnEquals.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch (mathOperator) {
+                    case '+':
+                        buffer2 = buffer1 + Double.parseDouble(textDisplay.getText());
+                        break;
+                    case '-':
+                        buffer2 = buffer1 - Double.parseDouble(textDisplay.getText());
+                        break;
+                    case '*':
+                        buffer2 = buffer1 * Double.parseDouble(textDisplay.getText());
+                        break;
+                    case '/':
+                        buffer2 = buffer1 / Double.parseDouble(textDisplay.getText());
+                        break;
+                }
+
+                String result = Double.toString(buffer2);
+                textDisplay.setText(result);
+                buffer1 = 0;
+            }
+        });
+
+        btnClear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buffer2 = 0;
+                textDisplay.setText("");
+            }
+        });
+
+        btnDel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textDisplay.setText("");
+            }
+        });
     }
 
     public static void main(String[] args) {
