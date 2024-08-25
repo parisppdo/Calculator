@@ -28,9 +28,6 @@ public class Calc extends JFrame {
     private JButton btnEquals;
     private JButton btnClear;
 
-    String operators = null;
-    double number1 = 0, number2 = 0;
-
     private void getOperator (String btnText) {
         mathOperator = btnText.charAt(0);
         buffer1 = buffer1 + Double.parseDouble(textDisplay.getText());
